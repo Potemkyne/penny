@@ -1,0 +1,71 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Listes des Parfums{% endblock %}
+
+{% block body %}
+{{ parent() }}
+<div class="container">
+    <div class="row">
+		<div class="col">
+		<h1>{{ rows.nom }}</h1> 
+		</div>
+		
+	</div>
+
+
+
+	<div class="row">
+	<div class="col">
+		{{ rows.marquefk.nom }}</br>
+		</div>
+		<div class="col">
+		{{ rows.annee }}</br>
+		</div>
+		<div class="col">
+		{{ rows.sexe }}</br>
+		</div>
+		<div class="col">
+		{{ rows.concentration }}</br>
+		</div> 
+	</div> 
+
+	<div class="row ">
+		<div class="col">
+		<h2>Famille Olfactive</h2>
+		{{ rows.famillefk.nom }}
+		</div>
+		<div class="col">
+		<h2>Notes de Tête</h2>
+		{% for value in rows.tetefk %}
+		{{ value.nom }}</br>
+		{% endfor %}
+		</div>
+
+		<div class="col">
+		<h2>Notes de Coeur</h2> 
+		{% for value in rows.coeurfk %}
+		{{ value.nom }}</br>
+		{% endfor %}
+		</div>
+
+		<div class="col">
+		<h2>Notes de Fond</h2> 
+		{% for value in rows.fondfk %}
+		{{ value.nom }}</br>
+		{% endfor %}
+		</div>
+     </div>
+
+	<div class="row">
+				<div class="col">
+		{{ rows.description }}
+		</div>
+		<div class="col">
+		<img src="{{rows.image}}" alt="{{rows.nom}}" >
+		</div>
+	</div>
+
+</div>
+
+
+{% endblock %}

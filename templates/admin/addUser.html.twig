@@ -1,0 +1,18 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Add User{% endblock %}
+
+{% block body %}
+{{ parent() }}
+<div class="container">
+    <h1>Formulaire User</h1> 
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+    {% if form is defined %}
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        {{ form_end(form) }}
+    {% endif %}
+</div>
+
+
+{% endblock %}

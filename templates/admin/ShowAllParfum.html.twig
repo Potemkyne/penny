@@ -1,0 +1,39 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Listes des Parfums{% endblock %}
+
+{% block body %}
+{{ parent() }}
+<div class="container">
+    <h1>Listes des Parfums</h1> 
+    <table>
+        {% for value in rows %}
+        <tr>
+            
+            {% for i in 0..3 %}
+            <td>
+              
+                    <div class="card" style="width: 18rem;">
+                        <img src={{ value.image }} class="card-img-top" alt={{ value.nom }}>
+                        <div class="card-body">
+                        <h5 class="card-title">{{ value.nom }}</h5>
+                        <p class="card-text">{{ value.concentration }}</p>
+                        <a href=" {{ path('admin/showParfum')~'?id='~value.id }}" class="btn btn-primary">Voir</a>
+                        </div>
+                    </div>
+                
+            </td>
+            {% endfor %}
+         
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+ 
+
+
+{% endblock %}
+
